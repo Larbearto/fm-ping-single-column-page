@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --Blue: hsl(223, 87%, 63%);
+  --PaleBlue: hsl(223, 100%, 88%);
+  --LightRed: hsl(354, 100%, 66%);
+  --Gray: hsl(0, 0%, 59%);
+  --VeryDarkBlue: hsl(209, 33%, 12%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*===============*/
+/* Base Styles */
+/*===============*/
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  margin-inline: auto;
+  max-width: 640px;
+  height: 100vh;
+  margin-block: 5.5rem;
+  padding-inline: 2rem;
+  position: relative;
+}
+
+h1 {
+  line-height: 1.1;
+  margin-block: 2rem 1rem;
+  font-size: clamp(22px, calc(4vw+0.5rem), 48px);
+}
+
+h1 > span {
+  color: var(--Gray);
+  font-weight: 300;
+}
+
+h1 + p {
+  color: hsl(var(--Gray));
+}
+
+@media (min-width: 37.5rem) {
+  h1 {
+    margin-block: 2.5rem 1.1rem;
+  }
+}
+
+/* =========================*/
+/*       FORM               */
+/* =========================*/
+
+.logo {
+  max-width: 3.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-block: 2rem 2.5rem;
+  padding-inline: 1.5rem;
+}
+
+form > div {
+  flex: 1;
+  position: relative;
+}
+
+input {
+  border-radius: 30px;
+  height: 3rem;
+  width: 100%;
+  padding-inline: 2rem;
+  border: 1px solid var(--PaleBlue);
+  transition: border-color 0.5s ease;
+  font-size: 12px;
+}
+
+input::placeholder {
+  color: var(--Gray);
+  font-weight: 300;
+  font-size: 0.9rem;
+  font-family: 'Libre Franklin', sans-serif;
+  opacity: 0.8;
+}
+
+input:hover,
+input:focus-visible {
+  border-color: hsl(223, 100%, 88%);
+  outline: none;
+}
+
+input.has-error {
+  border-color: var(--LightRed);
+}
+
+.error {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: hsl(354, 100%, 66%);
+  animation: fade-in 0.5s ease forwards;
+  text-align: center;
+  margin-block: 0.3rem 0.5rem;
+}
+
+button {
+  color: white;
+  background-color: var(--Blue);
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0px 6px 10px 1px var(--PaleBlue);
+  cursor: pointer;
+  padding-inline: 2rem;
+  height: 3rem;
+  transition: opacity 0.5s ease;
+}
+
+button:hover,
+button:focus-visible {
+  opacity: 0.8;
+  outline: none;
+}
+
+@media (min-width: 37.5rem) {
+  .logo {
+    max-width: 100%;
+  }
+
+  form {
+    flex-direction: row;
+    margin-block: 2.5rem 6rem;
+  }
+
+  .error {
+    position: absolute;
+    left: 2rem;
+    top: 100%;
+    font-size: 12px;
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: 5rem;
+  position: relative;
+  height: 3vh;
+}
+
+.footer_links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  position: relative;
+}
+
+i.fab {
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.5em;
+  font-size: 0.9rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--PaleBlue);
+  color: var(--Blue);
+  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+i.fab:hover,
+i.fab:focus-visible {
+  color: white;
+  background-color: var(--Blue);
+  transition: 0.6s ease;
+  outline: none;
+}
+
+.copyright {
+  font-size: clamp(10px, calc(2vw + 0.1rem, 12px));
+  color: var(--Gray);
+  margin-top: 3rem;
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  opacity: 0.7;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
